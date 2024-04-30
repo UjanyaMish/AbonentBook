@@ -1,0 +1,39 @@
+﻿<Window x:Class="Proga.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proga"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <DataGrid AutoGeneratingColumn="TestGrid_AutoGeneratingColumn" Grid.ColumnSpan="10" Name="TestGrid" HorizontalAlignment="Center" VerticalAlignment="Center" Height="253" Width="652"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Name="firstnamebox" Width="80" Initialized="Firstnamebox_Initialized" IsEditable="True" IsTextSearchEnabled="True" ScrollViewer.CanContentScroll="True" SelectionChanged="SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Top"></ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="2" Name="lastnamebox" Width="80" Initialized="Lastnamebox_Initialized" IsEditable="True" IsTextSearchEnabled="True" ScrollViewer.CanContentScroll="True" SelectionChanged="SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Top"></ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="3" Name="fathernamebox" Width="80" Initialized="Fathernamebox_Initialized" IsEditable="True" IsTextSearchEnabled="True" ScrollViewer.CanContentScroll="True" SelectionChanged="SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Top"></ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="4" Name="streetnamebox" Width="80" Initialized="Streetname_Initialized" IsEditable="True" IsTextSearchEnabled="True" ScrollViewer.CanContentScroll="True" SelectionChanged="SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Top"></ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="5" Name="housenumberbox" Width="80" Initialized="Housenumber_Initialized" IsEditable="True" IsTextSearchEnabled="True" ScrollViewer.CanContentScroll="True" SelectionChanged="SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Top"></ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="6" Name="homebox" Width="80" Initialized="Home_Initialized" IsEditable="True" IsTextSearchEnabled="True" ScrollViewer.CanContentScroll="True" SelectionChanged="SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Top"></ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="7" Name="workbox" Width="80" Initialized="Work_Initialized" IsEditable="True" IsTextSearchEnabled="True" ScrollViewer.CanContentScroll="True" SelectionChanged="SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Top"></ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="8" Name="mobilebox" Width="80" Initialized="Mobile_Initialized" IsEditable="True" IsTextSearchEnabled="True" ScrollViewer.CanContentScroll="True" SelectionChanged="SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Top"></ComboBox>
+        <Button Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Name="ButtonFind" Content="Поиск" Width="90" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Click="ButtonnFind"/>
+        <Button Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Name="ButtonCSV" Content="Выгрузить CSV" Width="90" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Click="ButtonnCSV"/>
+        <Button Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2" Name="ButtonStreets" Content="Улицы" Width="90" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Click="ButtonnStreets"/>
+    </Grid>
+</Window>
