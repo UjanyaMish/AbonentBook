@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,50 @@ namespace Proga
 
         private void ButtonnCSV(object sender, RoutedEventArgs e)
         {
-            Logic.SaveAbonentsCsv(TestGrid.ItemsSource.Cast<Abonent>(), "results");
+            List<Abonent> sortedAbonents = new();
+            for (int i = 0; i < TestGrid.Items.Count-1; i++)
+            {
+                var item = TestGrid.Items[i];
+                Abonent abonent = new();
+
+                for (int j = 0; j < TestGrid.Columns.Count; j++)
+                {
+                    var column = TestGrid.Columns[j];
+
+                    var cell = column.GetCellContent(item) as TextBlock;
+
+                    switch (j)
+                    {
+                        case 0:
+                            abonent.FirstName = cell.Text;
+                            break;
+                        case 1:
+                            abonent.LastName = cell.Text;
+                            break;
+                        case 2:
+                            abonent.FatherName = cell.Text;
+                            break;
+                        case 3:
+                            abonent.StreetName = cell.Text;
+                            break;
+                        case 4:
+                            abonent.HouseNumber = cell.Text;
+                            break;
+                        case 5:
+                            abonent.Home = cell.Text;
+                            break;
+                        case 6:
+                            abonent.Work = cell.Text;
+                            break;
+                        case 7:
+                            abonent.Mobile = cell.Text;
+                            break;
+                    }
+                }
+
+                sortedAbonents.Add(abonent);
+            }
+            Logic.SaveAbonentsCsv(sortedAbonents, "report_"+DateTime.Now.ToString().Replace(':','.'));
         }
 
         private void ButtonnStreets(object sender, RoutedEventArgs e)
@@ -212,7 +256,7 @@ namespace Proga
             {
                 items = items.Where(x => x.Mobile == mobilebox.SelectedItem as string);
             }
-            TestGrid.ItemsSource = items;
+            TestGrid.ItemsSource = items.ToList();
             if (items.Count() == 0)
             {
                 MessageBox.Show("Нет абонентов, удовлетворяющих критерию фильтрации");
