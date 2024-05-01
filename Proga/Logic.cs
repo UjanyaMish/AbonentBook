@@ -20,7 +20,7 @@ namespace Proga
             {
                 if (connection is null)
                 {
-                    connection = new("Server=192.168.0.10;Port=5432;Database=TellCompany;User Id=User;Password=1234;");
+                    connection = new("Server=62.16.42.119;Port=5432;Database=TellCompany;User Id=User;Password=1234;");
                 }
                 return connection;
             }
